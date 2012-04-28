@@ -1,5 +1,8 @@
 // Volume ratiator
 // name is subject to change without notice!
+// Authored By Christopher De Cairos and James Burns
+// April 28, 2012 at HotHacks
+
 
 (function( window ) {
   // call with new
@@ -49,11 +52,8 @@
           a = getA(d1,d2,d3),
           b = d1 - a;
 
-//console.log( "DISTANCES: ", d1, d2, d3 );
-//console.log( "a/b: ", a,b );
       media1.volume = Math.min( Math.max( parseFloat(a)/(a+b), 0 ),1);
       media2.volume = 1 - media1.volume;
-console.log("VOLUME: ", media1.volume, media2.volume );
     };
 
     document.body.addEventListener( "mousemove", mouseMoved );
