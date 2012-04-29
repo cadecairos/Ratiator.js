@@ -2,11 +2,15 @@
 <head>
   <script type="text/javascript">
       document.addEventListener( "DOMContentLoaded", function() {
+
+        // Hotspots are middle of each video.
         var r = new Ratiator( "video1", "video2" );
+
+        // Custom coordinates for the volume hotspot
+        //var r = new Ratiator( "video1", "video2", { x1: 50, y1: 50, x2: 300, y2: 20 } );
       });
   </script>
   <script src="ratiator.js" type="text/javascript" ></script>
-
 </head>
 <body>
 <video id="video1" controls style="position: absolute; left: 10px; top: 200px; height: 250px">
