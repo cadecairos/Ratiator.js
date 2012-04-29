@@ -29,6 +29,8 @@
 
     var self = this;
 
+    this.enabled = true;
+
     this.error = function message() {
       self.errorMessage = message;
       return this;
@@ -72,6 +74,9 @@
     },
 
     this.mouseMoved = function( evt ) {
+      if ( !self.enabled ) {
+        return;
+      }
       var cX = evt.clientX,
           cY = evt.clientY,
           d1 = self.distance(self.x1,self.y1,self.x2,self.y2),
@@ -84,9 +89,13 @@
       self.media2.volume = 1 - self.media1.volume;
     };
 
-    document.body.addEventListener( "mousemove", this.mouseMoved );
+    document.body.addEventListener( "mousemove", this.mouseMoved, false );
 
-    //TODO: Toggle
-    //this.enabled = true;
+    window.addEventListener( "keypress", function( e ) {
+      if ( e.charCode == 86 || e.charCode == 118 ) {
+        self.enabled = !self.enabled;
+      }
+    }, false );
+
   }
 })( window );
